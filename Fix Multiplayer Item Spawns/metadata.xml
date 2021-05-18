@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <name>Fix Multiplayer Item Spawns</name>
+    <directory>fix_multiplayer_item_spawns</directory>
+    <id>2490394695</id>
+    <description>Fix a few issues related to items spawning in Repentance multiplayer:
+[list][*][b]Prevent active items from spawning in boss rooms.[/b] If an active item is spawned in a boss room and every player has an active, no one can pick up any of the other items.
+
+[*][b]Spawn extra items in Greed Mode.[/b] Greed Mode is nearly impossible in multiplayer because not enough items spawn. This mod adds an extra item for each player in the white treasure room, similar to boss rooms in the normal mode.  The yellow treasure room and shop are unaffected.[/list]</description>
+    <version>1.1</version>
+    <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Items"/>
+    <tag id="Pickups"/>
+    <tag id="Tweaks"/>
+</metadata>
