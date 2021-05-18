@@ -1,4 +1,4 @@
-local fixSpawns = RegisterMod("Fix Multiplayer Item Spawns", 1)
+local fixSpawns = RegisterMod("Fix Multiplayer Item Spawns", 2)
 
 -- Called when a pickup is spawned
 -- Make sure no active items spawn in boss room in multiplayer
@@ -9,11 +9,10 @@ function fixSpawns:postPickupInit(entity)
 	if isCollectible and isBossRoom and not isGreedMode then
 		local numPlayers = fixSpawns:getNumLivingPlayers()
 		if numPlayers > 1 then
-			local attempts = 0
 			local itemConfig = Isaac:GetItemConfig()
-			while itemConfig:GetCollectible(entity.SubType).Type == ItemType.ITEM_ACTIVE and attempts < 100 do
+			if itemConfig:GetCollectible(entity.SubType).Type == ItemType.ITEM_ACTIVE then
 				entity:ToPickup():Morph(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, 0, true)
-				attempts = attempts + 1
+				-- Can only call Morph() once or game crashes.  If it's still an active... oh well!
 			end
 		end
 	end
